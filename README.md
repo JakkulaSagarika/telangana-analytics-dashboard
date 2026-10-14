@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Telangana Unified Analytics Portal
 
 This project combines the supplied Telangana landing page, Health Peripheral
@@ -40,3 +41,7 @@ The Vite development proxy forwards `/api` to the single Django server at port
 The bundled `db.sqlite3`, health workbook, birth/death workbook, public map
 assets, charts, maps, and dashboard components are retained. No iframes or
 secondary React/Django applications are used.
+=======
+# telangana-analytics-dashboard
+Integrated Telangana State Analytics Portal
+>>>>>>> origin/main
