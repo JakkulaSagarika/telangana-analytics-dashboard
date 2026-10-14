@@ -1,0 +1,395 @@
+/* ==========================================
+   DISTRICT INFO CARD
+========================================== */
+
+.district-info-card{
+
+    background:rgba(255,255,255,.96);
+
+    backdrop-filter:blur(18px);
+
+    border-radius:20px;
+
+    padding:18px;
+
+    box-shadow:0 12px 28px rgba(94,74,227,.12);
+
+    border:1px solid rgba(145,125,255,.15);
+
+    height:fit-content;
+
+}
+
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.district-header{
+
+    text-align:center;
+
+    margin-bottom:18px;
+
+}
+
+.district-header h3{
+
+    margin:0;
+
+    color:#4338CA;
+
+    font-size:22px;
+
+    font-weight:700;
+
+}
+
+.district-header p{
+
+    margin-top:4px;
+
+    color:#7B7B95;
+
+    font-size:12px;
+
+}
+
+
+/* ==========================================
+   SECTION
+========================================== */
+
+.stats-section{
+
+    margin-bottom:18px;
+
+}
+
+.stats-section h5{
+
+    margin-bottom:12px;
+
+    color:#4C1D95;
+
+    font-size:18px;
+
+    font-weight:700;
+
+}
+
+
+/* ==========================================
+   GRID
+========================================== */
+
+.stats-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:10px;
+
+}
+
+
+/* ==========================================
+   TOTAL CARD
+========================================== */
+
+.stats-grid .stat-box:first-child{
+
+    grid-column:1 / -1;
+
+}
+
+
+/* ==========================================
+   STAT CARD
+========================================== */
+
+.stat-box{
+
+    background:#F8F7FF;
+
+    border:1px solid #ECE8FF;
+
+    border-radius:16px;
+
+    padding:14px;
+
+    text-align:center;
+
+    transition:.3s;
+
+    min-height:90px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.stat-box:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 10px 20px rgba(91,33,182,.10);
+
+}
+
+.stat-box span{
+
+    color:#7C7B9A;
+
+    font-size:13px;
+
+    margin-bottom:8px;
+
+}
+
+.stat-box h4{
+
+    margin:0;
+
+    color:#4338CA;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    white-space:nowrap;
+
+    overflow:visible;
+
+    text-overflow:clip;
+
+    line-height:1;
+
+}
+/* ==========================================
+   LOCAL BODY
+========================================== */
+
+.local-body-section{
+
+    margin-top:18px;
+
+}
+
+.local-body-section h5{
+
+    margin-bottom:12px;
+
+    color:#4C1D95;
+
+    font-size:18px;
+
+    font-weight:700;
+
+}
+
+
+/* ==========================================
+   BODY CARD
+========================================== */
+
+.body-card{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:14px 16px;
+
+    margin-bottom:10px;
+
+    border-radius:16px;
+
+    background:#FBFAFF;
+
+    border:1px solid #ECE8FF;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.body-card:hover{
+
+    transform:translateX(6px);
+
+    background:linear-gradient(135deg,#7C6BF5,#A78BFA);
+
+    box-shadow:0 10px 20px rgba(124,107,245,.20);
+
+}
+
+.body-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+}
+
+.body-left svg{
+
+    font-size:20px;
+
+    color:#6C4DFF;
+
+    transition:.3s;
+
+    flex-shrink:0;
+
+}
+
+.body-left h6{
+
+    margin:0;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    color:#4338CA;
+
+}
+
+.body-left span{
+
+    display:block;
+
+    margin-top:3px;
+
+    color:#7C7B95;
+
+    font-size:12px;
+
+}
+
+.body-card > svg{
+
+    font-size:16px;
+
+    color:#6C4DFF;
+
+    transition:.3s;
+
+    flex-shrink:0;
+
+}
+
+.body-card:hover svg,
+
+.body-card:hover h6,
+
+.body-card:hover span{
+
+    color:#ffffff;
+
+}
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media(max-width:1200px){
+
+    .district-header h3{
+
+        font-size:20px;
+
+    }
+
+    .stat-box h4{
+
+        font-size:16px;
+
+    }
+
+}
+
+@media(max-width:992px){
+
+    .stats-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .stats-grid .stat-box:first-child{
+
+        grid-column:auto;
+
+    }
+
+    .district-info-card{
+
+        padding:16px;
+
+    }
+
+}
+
+@media(max-width:576px){
+
+    .district-header h3{
+
+        font-size:18px;
+
+    }
+
+    .stats-section h5,
+
+    .local-body-section h5{
+
+        font-size:16px;
+
+    }
+
+    .stat-box{
+
+        min-height:80px;
+
+        padding:12px;
+
+    }
+
+    .stat-box h4{
+
+        font-size:15px;
+
+    }
+
+    .body-card{
+
+        padding:12px;
+
+    }
+
+    .body-left{
+
+        gap:10px;
+
+    }
+
+    .body-left svg{
+
+        font-size:18px;
+
+    }
+
+}

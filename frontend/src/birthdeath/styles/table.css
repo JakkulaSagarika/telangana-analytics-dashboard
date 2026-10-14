@@ -1,0 +1,366 @@
+/* ===========================
+   District Table Card
+=========================== */
+
+.district-table-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    margin-top:35px;
+
+    padding:30px;
+
+    border-radius:28px;
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-repeat:no-repeat;
+
+    box-shadow:0 18px 40px rgba(108,77,255,.12);
+
+}
+
+/* Glass Overlay */
+
+.district-table-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:rgba(255,255,255,.82);
+
+    backdrop-filter:blur(14px);
+
+    z-index:0;
+
+}
+
+/* Keep Content Above Overlay */
+
+.district-header,
+.table-responsive{
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+/* ===========================
+   Header
+=========================== */
+
+.district-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:28px;
+
+    flex-wrap:wrap;
+
+    gap:20px;
+
+}
+
+.district-header h2{
+
+    margin:0;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    font-size:28px;
+
+    font-weight:700;
+
+    color:#5D3FD3;
+
+}
+
+.district-header p{
+
+    margin-top:8px;
+
+    color:#666;
+
+    font-size:15px;
+
+}
+
+/* ===========================
+   Search Box
+=========================== */
+
+.search-box{
+
+    position:relative;
+
+}
+
+.search-box input{
+
+    width:280px;
+
+    padding:12px 18px 12px 45px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:14px;
+
+    background:rgba(255,255,255,.85);
+
+    box-shadow:0 6px 20px rgba(108,77,255,.10);
+
+    font-size:15px;
+
+}
+
+.search-icon{
+
+    position:absolute;
+
+    left:16px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    color:#7B61FF;
+
+}
+
+/* ===========================
+   Table
+=========================== */
+
+.district-table{
+
+    width:100%;
+
+    border-collapse:separate;
+
+    border-spacing:0 12px;
+
+}
+
+.district-table thead th{
+
+    background:#6C4DFF;
+
+    color:white;
+
+    padding:16px;
+
+    text-align:center;
+
+    font-size:15px;
+
+    font-weight:600;
+
+}
+
+.district-table thead th:first-child{
+
+    border-radius:14px 0 0 14px;
+
+}
+
+.district-table thead th:last-child{
+
+    border-radius:0 14px 14px 0;
+
+}
+
+.district-table tbody tr{
+
+    transition:.3s;
+
+}
+
+.district-table tbody tr:hover{
+
+    transform:translateY(-2px);
+
+}
+
+.district-table tbody td{
+
+    background:rgba(255,255,255,.72);
+
+    padding:16px;
+
+    text-align:center;
+
+    backdrop-filter:blur(10px);
+
+    border-top:1px solid rgba(255,255,255,.4);
+
+    border-bottom:1px solid rgba(255,255,255,.4);
+
+}
+
+.district-table tbody td:first-child{
+
+    border-radius:16px 0 0 16px;
+
+}
+
+.district-table tbody td:last-child{
+
+    border-radius:0 16px 16px 0;
+
+}
+
+/* ===========================
+   District Name
+=========================== */
+
+.district-name{
+
+    font-weight:700;
+
+    color:#4B3FA7;
+
+    font-size:15px;
+
+}
+
+/* ===========================
+   Serial Badge
+=========================== */
+
+.serial-badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    width:34px;
+
+    height:34px;
+
+    border-radius:50%;
+
+    background:#ECE8FF;
+
+    color:#6C4DFF;
+
+    font-weight:700;
+
+}
+
+/* ===========================
+   Statistic Badges
+=========================== */
+
+.stat-badge{
+
+    display:inline-block;
+
+    padding:8px 14px;
+
+    border-radius:12px;
+
+    font-weight:600;
+
+    min-width:80px;
+
+}
+
+.birth{
+
+    background:#EFE8FF;
+
+    color:#6C4DFF;
+
+}
+
+.death{
+
+    background:#E5F4FF;
+
+    color:#1976D2;
+
+}
+
+.male{
+
+    background:#EAF3FF;
+
+    color:#1565C0;
+
+}
+
+.female{
+
+    background:#FFEAF5;
+
+    color:#D63384;
+
+}
+
+/* ===========================
+   Empty State
+=========================== */
+
+.empty-state{
+
+    padding:50px !important;
+
+    background:transparent !important;
+
+}
+
+.empty-content h4{
+
+    color:#6C4DFF;
+
+    margin-bottom:10px;
+
+}
+
+.empty-content p{
+
+    color:#777;
+
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media(max-width:992px){
+
+    .district-header{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+    }
+
+    .search-box input{
+
+        width:100%;
+
+    }
+
+}

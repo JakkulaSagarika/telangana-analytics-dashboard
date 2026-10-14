@@ -1,0 +1,678 @@
+/* =========================
+   GLOBAL
+========================= */
+
+body{
+    margin:0;
+    padding:0;
+    font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+}
+
+
+/* =========================
+   PAGE BACKGROUND
+========================= */
+
+.dashboard-page,
+.local-page{
+
+    min-height:100vh;
+    padding:30px;
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(238,243,255,.82),
+        rgba(232,224,255,.82),
+        rgba(214,204,255,.82)
+    );
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+}
+
+.birthdeath-landing-nav{
+    margin-bottom:24px;
+}
+
+.birthdeath-home-btn{
+    border:none;
+    border-radius:16px;
+    padding:10px 18px;
+    background:linear-gradient(135deg,#6c4dff,#8b5cf6);
+    color:#fff;
+    font-weight:700;
+    cursor:pointer;
+    box-shadow:0 12px 24px rgba(108,77,255,.18);
+    transition:transform .2s,box-shadow .2s;
+}
+
+.birthdeath-home-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 16px 28px rgba(108,77,255,.24);
+}
+
+
+/* =========================
+   GLASS CARDS
+========================= */
+
+.card,
+.chart-card,
+.table-card,
+.local-chart-card,
+.local-table-card,
+.local-filter-card,
+.local-kpi-card{
+
+    border-radius:25px;
+
+    background:
+    rgba(255,255,255,.65);
+
+    backdrop-filter:blur(18px);
+
+    box-shadow:
+    0 15px 35px rgba(108,77,255,.12);
+
+}
+
+
+
+.card{
+    border:none!important;
+}
+
+
+.card:hover,
+.local-kpi-card:hover{
+
+    transform:translateY(-5px);
+
+}
+
+
+/* =========================
+   MAP
+========================= */
+
+.leaflet-container{
+
+    border-radius:22px;
+    overflow:hidden;
+
+}
+
+
+
+/* =========================
+   TITLES
+========================= */
+
+.section-title{
+
+    color:#2D2D44;
+    font-size:32px;
+    font-weight:700;
+
+}
+
+
+
+.district-name{
+
+    color:#5B46D3;
+    font-weight:700;
+
+}
+
+
+.local-title{
+
+    color:#5B46D3;
+    font-size:36px;
+    font-weight:800;
+
+}
+
+
+/* =========================
+   INFO
+========================= */
+
+.info-card{
+
+    padding:24px;
+
+}
+
+
+.info-title{
+
+    color:#6C4DFF;
+    font-size:30px;
+    font-weight:700;
+
+}
+
+
+.info-section{
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:18px;
+
+    margin-bottom:18px;
+
+}
+
+
+
+/* =========================
+   SEARCH
+========================= */
+
+
+.local-filter-card{
+
+    padding:25px;
+    margin-bottom:30px;
+
+}
+
+
+
+.search-label{
+
+    display:flex;
+
+    gap:10px;
+
+    align-items:center;
+
+    color:#5B46D3;
+
+    font-weight:700;
+
+}
+
+
+.local-filter-card input{
+
+    width:100%;
+
+    padding:14px 18px;
+
+    border:none;
+
+    border-radius:15px;
+
+}
+
+
+
+/* =========================
+   KPI
+========================= */
+
+
+.local-kpi-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:25px;
+
+    margin-bottom:30px;
+
+}
+
+
+
+.local-kpi-card{
+
+    padding:25px;
+
+}
+
+
+
+.local-kpi-card span{
+
+    color:#756B98;
+
+    font-weight:600;
+
+}
+
+
+
+.local-kpi-card h2{
+
+    color:#5B46D3;
+
+    font-size:35px;
+
+    font-weight:800;
+
+}
+
+
+
+/* =========================
+   TABLE
+========================= */
+
+
+.local-table-card,
+.table-card{
+
+    padding:25px;
+
+}
+
+
+
+.table thead{
+
+    background:#6C4DFF;
+
+}
+
+
+.table th{
+
+    color:white;
+
+    font-weight:700;
+
+}
+
+
+
+.table tbody tr:hover{
+
+    background:#FAF7FF;
+
+}
+
+
+
+/* GP NAME */
+
+.district-table strong{
+
+    color:#5B46D3;
+
+    font-weight:700;
+
+}
+
+
+
+/* =========================
+   BADGES
+========================= */
+
+
+.stat-badge{
+
+    display:inline-block;
+
+    padding:8px 14px;
+
+    border-radius:12px;
+
+    font-weight:600;
+
+}
+
+
+
+.birth{
+
+    background:#EFE8FF;
+
+    color:#6C4DFF;
+
+}
+
+
+
+.death{
+
+    background:#FFEAF5;
+
+    color:#D63384;
+
+}
+
+
+
+.male{
+
+    background:#EAF3FF;
+
+    color:#1565C0;
+
+}
+
+
+
+.female{
+
+    background:#FFEAF5;
+
+    color:#D63384;
+
+}
+
+
+
+/* DEATH COLORS */
+
+
+.male-death{
+
+    background:#EAF3FF;
+
+    color:#1565C0;
+
+    padding:8px 14px;
+
+    border-radius:12px;
+
+    font-weight:600;
+
+}
+
+
+
+.female-death{
+
+    background:#FFEAF5;
+
+    color:#D63384;
+
+    padding:8px 14px;
+
+    border-radius:12px;
+
+    font-weight:600;
+
+}
+
+
+
+
+.serial-badge{
+
+    width:34px;
+
+    height:34px;
+
+    display:inline-flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border-radius:50%;
+
+    background:#ECE8FF;
+
+    color:#6C4DFF;
+
+    font-weight:700;
+
+}
+
+
+
+/* =========================
+   CHART
+========================= */
+
+
+.chart-card{
+
+    padding:28px;
+
+    min-height:450px;
+
+}
+
+
+
+.chart-title{
+
+    color:#5B46D3;
+
+    font-size:28px;
+
+    font-weight:800;
+
+}
+
+
+
+.chart-subtitle{
+
+    color:#756B98;
+
+}
+
+
+
+/* =========================
+ RESPONSIVE
+========================= */
+
+
+@media(max-width:992px){
+
+.local-kpi-grid{
+
+grid-template-columns:1fr;
+
+}
+
+}
+
+
+
+@media(max-width:600px){
+
+.dashboard-page,
+.local-page{
+
+padding:15px;
+
+}
+
+}
+/* =========================
+   SMOOTH SCROLL
+========================= */
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+
+body{
+
+    overflow-x:hidden;
+
+}
+
+
+/* smoother page scrolling */
+
+.dashboard-page,
+.local-page{
+
+    scroll-behavior:smooth;
+
+}
+
+
+
+/* Custom scrollbar */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+
+::-webkit-scrollbar-track{
+
+    background:#EEF3FF;
+
+    border-radius:20px;
+
+}
+
+
+::-webkit-scrollbar-thumb{
+
+    background:#B8A7FF;
+
+    border-radius:20px;
+
+}
+
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#8F7CFF;
+
+}
+/* =========================
+   REGISTRATION SUMMARY
+========================= */
+
+
+.registration-card{
+
+    background:rgba(255,255,255,.65);
+
+    backdrop-filter:blur(18px);
+
+    border-radius:25px;
+
+    padding:25px;
+
+}
+
+
+
+.summary-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:18px;
+
+    margin-top:20px;
+
+}
+
+
+
+.summary-box{
+
+    padding:20px;
+
+    border-radius:18px;
+
+}
+
+
+
+.summary-box span{
+
+    color:#756B98;
+
+    font-weight:700;
+
+}
+
+
+
+.summary-box h2{
+
+    margin:10px 0;
+
+    color:#5B46D3;
+
+    font-size:30px;
+
+    font-weight:800;
+
+}
+
+
+
+.summary-box small{
+
+    color:#6B7280;
+
+}
+
+
+
+/* individual colors */
+
+
+.birth-summary{
+
+    background:#EFE8FF;
+
+}
+
+
+
+.death-summary{
+
+    background:#FFEAF5;
+
+}
+
+
+
+.ratio-summary{
+
+    background:#EAF3FF;
+
+}
+
+
+
+.difference-summary{
+
+    background:#d0c7e6;
+
+}
+
+
+
+@media(max-width:768px){
+
+    .summary-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}

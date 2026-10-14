@@ -1,0 +1,86 @@
+import { useEffect, useState } from 'react'
+import { Navigate, NavLink, Route, Routes, useLocation, useNavigate } from 'react-router-dom'
+import Home from './pages/Home'
+import DistrictDetail from './pages/DistrictDetail'
+import Rankings from './pages/Rankings'
+import DistrictTable from './pages/DistrictTable'
+import CompareDistricts from './pages/CompareDistricts'
+import GramPanchayats from './pages/GramPanchayats'
+import Municipalities from './pages/Municipalities'
+import MunicipalCorporations from './pages/MunicipalCorporations'
+import PortalLanding from './pages/PortalLanding'
+import EducationOverview from './pages/EducationOverview'
+import EducationRankings from './pages/EducationRankings'
+import EducationDistrictAnalytics from './pages/EducationDistrictAnalytics'
+import EducationCompareDistricts from './pages/EducationCompareDistricts'
+import SchoolInfrastructure from './pages/SchoolInfrastructure'
+import CollegeAnalytics from './pages/CollegeAnalytics'
+import LiteracyAnalytics from './pages/LiteracyAnalytics'
+import DropoutAnalytics from './pages/DropoutAnalytics'
+import EVOverview from './pages/EVOverview'
+import EVStationDetail from './pages/EVStationDetail'
+import EVMap from './pages/EVMap'
+import EVDistrictAnalytics from './pages/EVDistrictAnalytics'
+import EVNearbyStations from './pages/EVNearbyStations'
+import EVRoutePlanner from './pages/EVRoutePlanner'
+import EVStations from './pages/EVStations'
+import OperatorAnalytics from './pages/OperatorAnalytics'
+import Auth from './pages/Auth'
+import { getCurrentUser, signOut } from './services/auth'
+import 'leaflet/dist/leaflet.css'
+import './styles.css'
+import './dashboard.css'
+import './screens.css'
+import './local-body-explorer.css'
+
+const links = [['/demographics', '⌂', 'Dashboard'], ['/demographics/districts', '◫', 'Districts'], ['/demographics/rankings', '↗', 'Rankings'], ['/demographics/compare', '⇄', 'Compare Districts'], ['/demographics/district-table', '▤', 'District Table'], ['/demographics/gram-panchayats', '⌘', 'Gram Panchayats'], ['/demographics/municipalities', '⌂', 'Municipalities'], ['/demographics/municipal-corporations', '▥', 'Municipal Corporations'], ['/reports', '◷', 'Reports'], ['/about', 'ⓘ', 'About']]
+
+function DemographicsLayout() {
+  return <div className="portal-shell"><aside className="side-nav"><NavLink className="portal-brand" to="/"><span>TS</span><b>Telangana</b><small>Demographics analytics</small></NavLink><nav>{links.map(([to, icon, label]) => <NavLink key={to} to={to} end={to === '/demographics'}><i>{icon}</i>{label}</NavLink>)}</nav><div className="side-source"><b>NIC records</b><span>Birth &amp; death data<br/>33 districts</span></div></aside><div className="app-shell"><header className="site-header"><div><p className="eyebrow">Telangana demographics dashboard</p><strong>Vital event explorer</strong></div><NavLink className="header-tag" to="/">← Portal home</NavLink></header><main><Routes><Route index element={<Home/>}/><Route path="districts" element={<DistrictTable/>}/><Route path="districts/:slug" element={<DistrictDetail/>}/><Route path="rankings" element={<Rankings/>}/><Route path="compare" element={<CompareDistricts/>}/><Route path="district-table" element={<DistrictTable/>}/><Route path="gram-panchayats" element={<GramPanchayats/>}/><Route path="municipalities" element={<Municipalities/>}/><Route path="municipal-corporations" element={<MunicipalCorporations/>}/><Route path="*" element={<div className="notice">That page was not found. Use the sidebar to continue.</div>}/></Routes></main></div></div>
+}
+
+const educationLinks = [['/education', '⌂', 'Dashboard'], ['/education/rankings', '↗', 'District Rankings'], ['/education/compare', '⇄', 'Compare Districts'], ['/education/infrastructure', '▤', 'School Infrastructure'], ['/education/colleges', '⌘', 'College Analytics'], ['/education/literacy', '◉', 'Literacy Analytics'], ['/education/dropout', '◌', 'Dropout Analytics']]
+
+function EducationLayout() {
+  return <div className="portal-shell education-shell"><aside className="side-nav"><NavLink className="portal-brand" to="/"><span>TS</span><b>Telangana</b><small>Education statistics</small></NavLink><nav>{educationLinks.map(([to, icon, label]) => <NavLink key={to} to={to} end={to === '/education'}><i>{icon}</i>{label}</NavLink>)}</nav><div className="side-source"><b>Government datasets</b><span>Literacy, schools &amp; colleges<br/>District-level coverage</span></div></aside><div className="app-shell"><header className="site-header"><div><p className="eyebrow">Government of Telangana</p><strong>Education statistics dashboard</strong></div><NavLink className="header-tag" to="/">← Portal home</NavLink></header><main><Routes><Route index element={<EducationOverview/>}/><Route path="rankings" element={<EducationRankings/>}/><Route path="districts/:slug" element={<EducationDistrictAnalytics/>}/><Route path="compare" element={<EducationCompareDistricts/>}/><Route path="infrastructure" element={<SchoolInfrastructure/>}/><Route path="colleges" element={<CollegeAnalytics/>}/><Route path="literacy" element={<LiteracyAnalytics/>}/><Route path="dropout" element={<DropoutAnalytics/>}/><Route path="*" element={<EducationOverview/>}/></Routes></main></div></div>
+}
+
+const evLinks = [['/ev', '⚡', 'Dashboard'], ['/ev/map', '◈', 'Interactive Map'], ['/ev/nearby', '⌖', 'Nearby Stations'], ['/ev/route-planner', '↗', 'Route Planner'], ['/ev/stations', '⧉', 'Charging Stations'], ['/ev/operator-analytics', '◉', 'Operator Analytics']]
+
+function EVLayout() {
+  return <div className="portal-shell ev-shell"><aside className="side-nav"><NavLink className="portal-brand" to="/"><span>TS</span><b>Telangana</b><small>EV infrastructure</small></NavLink><nav>{evLinks.map(([to, icon, label]) => <NavLink key={to} to={to} end={to === '/ev'}><i>{icon}</i>{label}</NavLink>)}</nav><div className="side-source"><b>NIC records</b><span>April 2024 EV charging data<br/>Statewide coverage</span></div></aside><div className="app-shell"><header className="site-header"><div><p className="eyebrow">Government of Telangana</p><strong>EV infrastructure dashboard</strong></div><NavLink className="header-tag" to="/">← Portal home</NavLink></header><main><Routes><Route index element={<EVOverview/>}/><Route path="nearby" element={<EVNearbyStations/>}/><Route path="stations" element={<EVStations/>}/><Route path="route-planner" element={<EVRoutePlanner/>}/><Route path="map" element={<EVMap/>}/><Route path="districts/:slug" element={<EVDistrictAnalytics/>}/><Route path="stations/:slug" element={<EVStationDetail/>}/><Route path="operator-analytics" element={<OperatorAnalytics />} /><Route path="*" element={<EVOverview/>}/></Routes></main></div></div>
+}
+
+// These named exports let the unified portal mount the supplied dashboards at
+// their established routes without duplicating their existing pages or APIs.
+export function EducationDashboard() {
+  return <EducationLayout />
+}
+
+export function EVDashboard() {
+  return <EVLayout />
+}
+
+function LogoutButton({ onLoggedOut }) {
+  const [busy, setBusy] = useState(false)
+  const navigate = useNavigate()
+  const logout = async () => {
+    setBusy(true)
+    try { await signOut(); onLoggedOut(); navigate('/login', { replace: true }) } finally { setBusy(false) }
+  }
+  return <button className="portal-logout" type="button" onClick={logout} disabled={busy}>{busy ? 'Signing out…' : 'Log out'}</button>
+}
+
+function RequireAuth({ status, onLoggedOut, children }) {
+  const location = useLocation()
+  if (status === 'checking') return <div className="auth-loading" aria-live="polite">Checking your secure session…</div>
+  if (status === 'signed-out') return <Navigate to="/login" replace state={{ from: location }} />
+  return <><LogoutButton onLoggedOut={onLoggedOut} />{children}</>
+}
+
+export default function App() {
+  const [status, setStatus] = useState('checking')
+  useEffect(() => { getCurrentUser().then((user) => setStatus(user ? 'signed-in' : 'signed-out')).catch(() => setStatus('signed-out')) }, [])
+  const protectedRoute = (page) => <RequireAuth status={status} onLoggedOut={() => setStatus('signed-out')}>{page}</RequireAuth>
+  return <Routes><Route path="/login" element={status === 'signed-in' ? <Navigate to="/" replace /> : <Auth onAuthenticated={() => setStatus('signed-in')} />}/><Route path="/auth" element={<Navigate to="/login" replace />}/><Route path="/" element={protectedRoute(<PortalLanding/>)} /><Route path="/demographics/*" element={protectedRoute(<DemographicsLayout/>)} /><Route path="/education/*" element={protectedRoute(<EducationLayout/>)} /><Route path="/ev/*" element={protectedRoute(<EVLayout/>)} /><Route path="*" element={protectedRoute(<PortalLanding/>)} /></Routes>
+}

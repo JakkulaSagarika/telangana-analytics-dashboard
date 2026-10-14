@@ -1,0 +1,517 @@
+/* ==========================================
+   ANALYTICS PAGE
+========================================== */
+
+.analytics-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,minmax(0,1fr));
+
+    gap:24px;
+
+    margin:30px 0;
+
+    width:100%;
+
+    align-items:start;
+
+}
+
+/* ==========================================
+   ANALYTICS CARD
+========================================== */
+
+.analytics-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:rgba(255,255,255,.20);
+
+    backdrop-filter:blur(24px);
+
+    -webkit-backdrop-filter:blur(24px);
+
+    border:1px solid rgba(255,255,255,.35);
+
+    border-radius:28px;
+
+    padding:26px;
+
+    box-shadow:
+
+        0 12px 35px rgba(0,0,0,.10);
+
+    transition:.35s;
+
+}
+
+.analytics-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+
+        135deg,
+
+        rgba(255,255,255,.15),
+
+        rgba(255,255,255,.04)
+
+    );
+
+    pointer-events:none;
+
+}
+
+.analytics-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:
+
+        0 20px 45px rgba(0,0,0,.15);
+
+}
+
+/* ==========================================
+   SECTION TITLE
+========================================== */
+
+.section-title{
+
+    position:relative;
+
+    z-index:2;
+
+    margin-bottom:22px;
+
+    font-size:24px;
+
+    font-weight:700;
+
+    color:#2F2F2F;
+
+}
+
+/* ==========================================
+   KPI GRID
+========================================== */
+
+.analytics-kpi-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:24px;
+
+    margin:25px 0 35px;
+
+}
+
+/* ==========================================
+   KPI CARD
+========================================== */
+
+.analytics-kpi-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:linear-gradient(
+
+        135deg,
+
+        rgba(245,141,170,.90),
+
+        rgba(239,163,195,.90),
+
+        rgba(216,175,233,.90)
+
+    );
+
+    border-radius:24px;
+
+    min-height:170px;
+
+    padding:30px 24px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    transition:.35s;
+
+    box-shadow:
+
+        0 12px 24px rgba(214,171,233,.18);
+
+}
+
+.analytics-kpi-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-120%;
+
+    width:100%;
+
+    height:100%;
+
+    background:rgba(255,255,255,.18);
+
+    transform:skewX(-25deg);
+
+    transition:.8s;
+
+}
+
+.analytics-kpi-card:hover::before{
+
+    left:120%;
+
+}
+
+.analytics-kpi-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:
+
+        0 18px 36px rgba(214,171,233,.28);
+
+}
+
+.analytics-kpi-content{
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+.analytics-kpi-title{
+
+    color:#FFFFFF;
+
+    font-size:20px;
+
+    font-weight:600;
+
+    margin-bottom:18px;
+
+}
+
+.analytics-kpi-title::after{
+
+    content:"";
+
+    display:block;
+
+    width:60px;
+
+    height:2px;
+
+    margin:15px auto 0;
+
+    background:rgba(255,255,255,.45);
+
+}
+
+.analytics-kpi-value{
+
+    font-size:3.6rem;
+
+    font-weight:700;
+
+    color:white;
+
+}
+
+/* ==========================================
+   TABLE
+========================================== */
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+thead{
+
+    background:rgba(255,255,255,.20);
+
+    backdrop-filter:blur(16px);
+
+}
+
+th{
+
+    color:#2F2F2F;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    padding:16px;
+
+    border:none;
+
+}
+
+td{
+
+    padding:15px;
+
+    color:#333;
+
+    background:rgba(255,255,255,.08);
+
+    border-bottom:1px solid rgba(255,255,255,.15);
+
+}
+
+tbody tr{
+
+    transition:.25s;
+
+}
+
+tbody tr:hover{
+
+    background:rgba(255,255,255,.18);
+
+}
+
+/* ==========================================
+   MAP
+========================================== */
+
+.map-card{
+
+    min-height:700px;
+
+}
+
+.map-card .leaflet-container{
+
+    height:620px;
+
+    border-radius:20px;
+
+}
+
+/* ==========================================
+   CHARTS
+========================================== */
+
+.recharts-wrapper{
+
+    font-family:"Segoe UI",sans-serif;
+
+}
+
+.recharts-default-tooltip{
+
+    border:none !important;
+
+    border-radius:16px !important;
+
+    box-shadow:0 12px 25px rgba(0,0,0,.15);
+
+}
+
+.recharts-legend-item-text{
+
+    color:#444 !important;
+
+}
+
+/* ==========================================
+   LEAFLET
+========================================== */
+
+.leaflet-container{
+
+    border-radius:20px;
+
+    background:transparent;
+
+}
+
+.leaflet-tooltip{
+
+    border:none !important;
+
+    border-radius:14px !important;
+
+    padding:10px;
+
+    box-shadow:0 10px 22px rgba(0,0,0,.18);
+
+}
+
+/* ==========================================
+   GLASS UTILITY
+========================================== */
+
+.bg-glass{
+
+    background:rgba(255,255,255,.20);
+
+    backdrop-filter:blur(22px);
+
+    -webkit-backdrop-filter:blur(22px);
+
+    border:1px solid rgba(255,255,255,.30);
+
+}
+
+/* ==========================================
+   SCROLLBAR
+========================================== */
+
+.analytics-card::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+.analytics-card::-webkit-scrollbar-thumb{
+
+    background:#C084FC;
+
+    border-radius:999px;
+
+}
+
+.analytics-card::-webkit-scrollbar-track{
+
+    background:transparent;
+
+}
+
+/* ==========================================
+   FADE ANIMATION
+========================================== */
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.analytics-card{
+
+    animation:fadeIn .4s ease;
+
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media(max-width:1200px){
+
+    .analytics-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .analytics-kpi-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .analytics-grid{
+
+        grid-template-columns:1fr;
+
+        gap:20px;
+
+    }
+
+    .analytics-card{
+
+        padding:20px;
+
+        border-radius:22px;
+
+    }
+
+    .analytics-kpi-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .analytics-kpi-card{
+
+        min-height:150px;
+
+    }
+
+    .analytics-kpi-title{
+
+        font-size:18px;
+
+    }
+
+    .analytics-kpi-value{
+
+        font-size:3rem;
+
+    }
+
+    .section-title{
+
+        font-size:20px;
+
+    }
+
+    .map-card .leaflet-container{
+
+        height:420px;
+
+    }
+
+}

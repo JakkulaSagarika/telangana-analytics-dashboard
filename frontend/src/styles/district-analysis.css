@@ -1,0 +1,326 @@
+/* ==========================================
+   DISTRICT PAGE
+========================================== */
+
+.district-page{
+
+    min-height:100vh;
+
+    padding:30px;
+
+    background:
+        linear-gradient(
+            rgba(255,255,255,.15),
+            rgba(255,255,255,.15)
+        ),
+        url("../assets/images/health-dashboard.png");
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-repeat:no-repeat;
+
+    background-attachment:fixed;
+
+    overflow-x:hidden;
+
+}
+
+/* ==========================================
+   BACK BUTTON
+========================================== */
+
+.district-back-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    background:linear-gradient(
+        135deg,
+        #FF9F68,
+        #FF5D8F,
+        #C084FC
+    );
+
+    color:#fff;
+
+    border:none;
+
+    padding:14px 30px;
+
+    border-radius:18px;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+    box-shadow:0 12px 28px rgba(255,95,143,.20);
+
+}
+
+.district-back-btn:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 18px 36px rgba(255,95,143,.30);
+
+}
+
+/* ==========================================
+   GLASS CARD
+========================================== */
+
+.district-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:rgba(255,255,255,.20);
+
+    backdrop-filter:blur(24px);
+
+    -webkit-backdrop-filter:blur(24px);
+
+    border:1px solid rgba(255,255,255,.35);
+
+    border-radius:28px;
+
+    box-shadow:
+
+        0 12px 35px rgba(0,0,0,.10);
+
+    transition:.35s;
+
+}
+
+.district-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+
+        135deg,
+
+        rgba(255,255,255,.15),
+
+        rgba(255,255,255,.04)
+
+    );
+
+    pointer-events:none;
+
+}
+
+.district-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:
+
+        0 20px 45px rgba(0,0,0,.15);
+
+}
+
+/* ==========================================
+   CARD TITLES
+========================================== */
+
+.district-card h4,
+.district-card h5{
+
+    position:relative;
+
+    z-index:2;
+
+    margin-bottom:18px;
+
+    font-size:24px;
+
+    font-weight:700;
+
+    color:#2F2F2F;
+
+}
+
+/* ==========================================
+   CHARTS
+========================================== */
+
+.district-card canvas{
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+/* ==========================================
+   TABLE
+========================================== */
+
+.table{
+
+    margin-bottom:0;
+
+    background:transparent;
+
+}
+
+.table thead th{
+
+    background:rgba(255,255,255,.18);
+
+    backdrop-filter:blur(14px);
+
+    color:#333;
+
+    border:none;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    padding:16px;
+
+}
+
+.table tbody td{
+
+    background:rgba(255,255,255,.08);
+
+    color:#2F2F2F;
+
+    border-color:rgba(255,255,255,.15);
+
+    padding:15px;
+
+    vertical-align:middle;
+
+}
+
+.table-hover tbody tr{
+
+    transition:.25s;
+
+}
+
+.table-hover tbody tr:hover{
+
+    background:rgba(255,255,255,.18);
+
+}
+
+/* ==========================================
+   TABLE RESPONSIVE
+========================================== */
+
+.table-responsive{
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+}
+
+/* ==========================================
+   KPI ROW
+========================================== */
+
+.district-page .row{
+
+    margin-bottom:10px;
+
+}
+
+/* ==========================================
+   SCROLLBAR
+========================================== */
+
+.district-card::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+.district-card::-webkit-scrollbar-track{
+
+    background:transparent;
+
+}
+
+.district-card::-webkit-scrollbar-thumb{
+
+    background:#C084FC;
+
+    border-radius:999px;
+
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media(max-width:992px){
+
+    .district-page{
+
+        padding:22px;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .district-page{
+
+        padding:16px;
+
+        background-position:center;
+
+    }
+
+    .district-card{
+
+        border-radius:22px;
+
+    }
+
+    .district-card h4,
+    .district-card h5{
+
+        font-size:20px;
+
+    }
+
+    .district-back-btn{
+
+        width:100%;
+
+    }
+
+    .table thead th,
+    .table tbody td{
+
+        padding:12px;
+
+        font-size:14px;
+
+    }
+
+}

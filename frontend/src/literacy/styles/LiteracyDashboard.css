@@ -1,0 +1,544 @@
+:root {
+  --primary: #1F4F39;
+  --secondary: #4E8F68;
+  --background: #F3F0E8;
+  --card: #FCFAF5;
+  --border: #D5E3D4;
+  --text: #1F2937;
+  --hover: #3C7655;
+}
+
+/* =========================================================
+   MAIN DASHBOARD
+========================================================= */
+
+.literacy-dashboard {
+  position: relative;
+  isolation: isolate;
+  min-height: 100vh;
+  padding: 35px;
+  overflow: hidden;
+}
+
+/* Blur + dark overlay over the background image */
+.literacy-dashboard::before {
+  content: "";
+  position: fixed;
+  inset: -10px;
+  z-index: -1;
+  background: rgba(15, 40, 30, 0.18);
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+  pointer-events: none;
+}
+.literacy-dashboard::after {
+  background: rgba(20, 45, 35, 0.20);
+}
+
+/* Keep dashboard content above overlay */
+.literacy-dashboard > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.lit-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.lit-header h1 {
+  font-size: 42px;
+  color: #FFFFFF;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+.lit-header p {
+  font-size: 18px;
+  color: #F1F5F3;
+  margin-top: 10px;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* =========================================================
+   KPI SECTION
+========================================================= */
+
+.kpi-section {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+.kpi-card {
+  background: rgba(252, 250, 245, 0.91);
+  padding: 30px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  text-align: center;
+  transition: .3s;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.kpi-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--secondary);
+  background: rgba(248, 246, 239, 0.96);
+}
+
+.kpi-card h2 {
+  font-size: 38px;
+  color: var(--primary);
+}
+
+.kpi-card p {
+  margin-top: 10px;
+  color: var(--secondary);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* =========================================================
+   CHART SECTIONS
+========================================================= */
+
+.charts-section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  margin-top: 40px;
+}
+
+/* =========================================================
+   CHART CARDS
+========================================================= */
+
+.chart-card {
+  background: rgba(252, 250, 245, 0.91);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 20px;
+  padding: 25px;
+  min-height: 320px;
+  transition: 0.3s;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.chart-card:hover {
+  border-color: var(--secondary);
+  transform: translateY(-5px);
+}
+
+.chart-card h2 {
+  color: var(--primary);
+  font-size: 22px;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.recharts-wrapper {
+  margin: auto;
+}
+
+/* =========================================================
+   TABLE SECTION
+========================================================= */
+
+.table-section {
+  margin-top: 40px;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.literacy-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+/* =========================================================
+   LITERACY TABLE
+========================================================= */
+
+.literacy-table th {
+  background: var(--primary);
+  color: #FFFFFF;
+  padding: 14px;
+  text-align: center;
+  font-size: 15px;
+}
+
+.literacy-table td {
+  padding: 12px;
+  border-bottom: 1px solid var(--border);
+  text-align: center;
+  color: var(--text);
+}
+
+/* Alternate rows */
+
+.literacy-table tbody tr:nth-child(even) {
+  background: #F7F5ED;
+}
+
+/* Row hover */
+
+.literacy-table tbody tr:hover {
+  background: #EAF1E7;
+  transition: .3s;
+}
+
+/* Selected row */
+
+.selected-row {
+  background: #D5E3D4 !important;
+  font-weight: 600;
+}
+
+/* =========================================================
+   SELECTED DISTRICT
+========================================================= */
+
+.selected-district {
+  margin: 25px 0;
+  padding: 20px;
+  background: rgba(213, 227, 212, 0.93);
+  border-left: 6px solid var(--primary);
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.selected-district h2 {
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+/* =========================================================
+   MAP
+========================================================= */
+
+.map-container {
+  margin: 30px 0;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.16);
+  border: 2px solid rgba(255, 255, 255, 0.75);
+}
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.search-box {
+  margin: 20px 0;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 14px;
+  border: 2px solid var(--secondary);
+  border-radius: 10px;
+  font-size: 16px;
+  background: rgba(252, 250, 245, 0.94);
+  color: var(--text);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.search-box input::placeholder {
+  color: #7B8490;
+}
+
+.search-box input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(78, 143, 104, 0.12);
+}
+
+/* =========================================================
+   COMPARISON SECTION
+========================================================= */
+
+.comparison-section {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.comparison-card {
+  width: 100%;
+}
+
+.comparison-description {
+  color: #64748B;
+  margin-top: -8px;
+  margin-bottom: 25px;
+}
+
+/* =========================================================
+   DISTRICT SELECTORS
+========================================================= */
+
+.comparison-selectors {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 25px;
+  margin-bottom: 30px;
+}
+
+.comparison-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 280px;
+}
+
+.comparison-selector label {
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.comparison-selector select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--card);
+  color: var(--text);
+  font-size: 15px;
+  cursor: pointer;
+  outline: none;
+}
+
+.comparison-selector select:focus {
+  border-color: var(--secondary);
+}
+
+.comparison-vs {
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--primary);
+  padding-bottom: 12px;
+}
+
+/* =========================================================
+   COMPARISON VALUE CARDS
+========================================================= */
+
+.comparison-values {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.comparison-value-card {
+  background: rgba(245, 243, 234, 0.92);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(31, 79, 57, 0.08);
+}
+
+.comparison-value-card h3 {
+  margin: 0 0 10px;
+  color: var(--primary);
+  font-size: 18px;
+}
+
+.comparison-main-value {
+  font-size: 34px;
+  font-weight: 700;
+  color: var(--secondary);
+}
+
+.comparison-value-card p {
+  margin-top: 6px;
+  color: #64748B;
+}
+
+/* =========================================================
+   COMPARISON CHART
+========================================================= */
+
+.comparison-chart {
+  width: 100%;
+  min-height: 380px;
+}
+
+/* =========================================================
+   PLACEHOLDER
+========================================================= */
+
+.comparison-placeholder {
+  padding: 35px;
+  text-align: center;
+  background: rgba(213, 227, 212, 0.25);
+  border-radius: 10px;
+  color: var(--secondary);
+  border: 1px dashed var(--border);
+}
+
+/* =========================================================
+   COMPARISON ACTION BUTTONS
+========================================================= */
+
+.comparison-actions {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.comparison-actions button {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 6px;
+  background: var(--primary);
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.comparison-actions button:hover {
+  background: var(--hover);
+}
+
+.comparison-actions button:last-child {
+  background: #718096;
+}
+
+.comparison-actions button:last-child:hover {
+  background: #5F6B7A;
+}
+
+/* =========================================================
+   DISTRICT CHECKBOXES
+========================================================= */
+
+.district-checkbox-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  max-height: 220px;
+  overflow-y: auto;
+  padding: 15px;
+  margin-bottom: 25px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: rgba(245, 243, 234, 0.92);
+}
+
+.district-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #46534B;
+}
+
+.district-checkbox:hover {
+  background: #D5E3D4;
+}
+
+.district-checkbox input {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: var(--secondary);
+}
+
+/* =========================================================
+   GENDER COMPARISON TABLE
+========================================================= */
+
+.gender-comparison-table-wrapper {
+  overflow-x: auto;
+  margin-bottom: 30px;
+}
+
+.gender-comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.gender-comparison-table th,
+.gender-comparison-table td {
+  padding: 13px 15px;
+  border-bottom: 1px solid var(--border);
+  text-align: center;
+}
+
+.gender-comparison-table th {
+  background: #D5E3D4;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.gender-comparison-table td {
+  color: var(--text);
+}
+
+.gender-comparison-table td:first-child,
+.gender-comparison-table th:first-child {
+  text-align: left;
+}
+
+.gender-comparison-table tbody tr:hover {
+  background: #F0F4EC;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 992px) {
+  .kpi-section,
+  .charts-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .comparison-selectors {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .comparison-selector {
+    width: 100%;
+  }
+
+  .comparison-vs {
+    text-align: center;
+    padding: 0;
+  }
+
+  .comparison-values {
+    grid-template-columns: 1fr;
+  }
+
+  .district-checkbox-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .district-checkbox-container {
+    grid-template-columns: 1fr;
+  }
+}

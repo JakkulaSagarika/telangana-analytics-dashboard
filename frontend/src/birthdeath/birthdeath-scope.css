@@ -1,0 +1,32 @@
+.birthdeath-app {
+  --primary: #6C4DFF;
+  --primary-hover: #8E72FF;
+  --background: #F8F9FD;
+  --surface: #FFFFFF;
+  --light-purple: #F4F0FF;
+  --lavender: #D9D0FF;
+  --text: #2D2D44;
+  --text-secondary: #7B7B90;
+  --border: #E8E8F3;
+  --shadow: rgba(108, 77, 255, 0.12);
+}
+
+.birthdeath-app .birthdeath-layout { min-height: 100vh; width: 100%; overflow: hidden; background: #f5f7fb; }
+.birthdeath-app .birthdeath-main { min-height: 100vh; margin-left: var(--sidebar-width); min-width: 0; display: flex; flex-direction: column; }
+.birthdeath-app .birthdeath-content { flex: 1; min-width: 0; overflow-y: auto; overflow-x: hidden; background: #f5f7fb; }
+.birthdeath-app .bd-sidebar { position: fixed; top: 0; left: 0; z-index: 1100; display: flex; width: var(--sidebar-width); height: 100vh; overflow: hidden; color: #fff; background: linear-gradient(160deg, #6c4dff, #2d2d44); box-shadow: 4px 0 20px rgba(45,45,68,.25); }
+.birthdeath-app .bd-sidebar-background, .birthdeath-app .bd-sidebar-overlay { position: absolute; inset: 0; }
+.birthdeath-app .bd-sidebar-background { opacity: .2; background: url("./assets/images/charminar.png") center / cover; }
+.birthdeath-app .bd-sidebar-overlay { background: rgba(24,18,43,.3); }
+.birthdeath-app .bd-sidebar-content { position: relative; z-index: 1; display: flex; flex: 1; flex-direction: column; justify-content: space-between; }
+.birthdeath-app .bd-sidebar-header { padding: 28px 24px 16px; border-bottom: 1px solid rgba(255,255,255,.2); }
+.birthdeath-app .bd-sidebar-header h2, .birthdeath-app .bd-sidebar-header p, .birthdeath-app .bd-profile-details h5, .birthdeath-app .bd-profile-details p { margin: 0; color: #fff; }
+.birthdeath-app .bd-sidebar-header h2 { font-size: 1.7rem; }
+.birthdeath-app .bd-profile-card { display: flex; align-items: center; gap: 12px; padding: 20px 24px; }
+.birthdeath-app .bd-profile-avatar { font-size: 2rem; line-height: 1; }
+.birthdeath-app .bd-profile-details p { opacity: .75; }
+.birthdeath-app .bd-sidebar-menu { flex: 1; padding: 4px 14px; margin: 0; list-style: none; }
+.birthdeath-app .bd-sidebar-link { display: block; margin: 4px 0; padding: 12px 14px; border-radius: 10px; color: #fff; text-decoration: none; font-size: 1rem; }
+.birthdeath-app .bd-sidebar-link:hover, .birthdeath-app .bd-sidebar-link.active { background: rgba(255,255,255,.2); color: #fff; }
+.birthdeath-app .bd-sidebar-footer { padding: 20px 24px; color: rgba(255,255,255,.85); font-size: .9rem; }
+@media (max-width: 768px) { .birthdeath-app .bd-sidebar { transform: translateX(-100%); } .birthdeath-app .birthdeath-main { margin-left: 0; } }

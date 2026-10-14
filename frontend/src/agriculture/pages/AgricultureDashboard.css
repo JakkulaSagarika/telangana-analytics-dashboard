@@ -1,0 +1,978 @@
+/* =========================================================
+   TELANGANA AGRICULTURE DASHBOARD
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family:
+    Inter,
+    "Segoe UI",
+    Arial,
+    sans-serif;
+  background: #f9f3e9;
+}
+
+
+/* =========================================================
+   MAIN DASHBOARD
+   ========================================================= */
+
+.ag-dashboard {
+  position: relative;
+  isolation: isolate;
+  min-height: 100vh;
+  color: #1f4f39;
+  padding: 30px 40px 70px;
+  overflow: hidden;
+}
+
+/* Slight background blur */
+.ag-dashboard::before {
+  content: "";
+  position: fixed;
+  inset: -10px;
+  z-index: -2;
+
+  background: rgba(20, 55, 25, 0.10);
+
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+
+  pointer-events: none;
+}
+
+/* Very light dark overlay */
+.ag-dashboard::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+
+  background: rgba(20, 45, 25, 0.18);
+
+  pointer-events: none;
+}
+
+.ag-dashboard > * {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* =========================================================
+   BACK LINK
+   ========================================================= */
+
+.ag-back {
+  margin-bottom: 10px;
+}
+
+.ag-back a {
+  text-decoration: none;
+  color: #1f4f39;
+  font-size: 16px;
+  font-weight: 700;
+  transition: 0.2s ease;
+}
+
+.ag-back a:hover {
+  color: #4e8f68;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.ag-header {
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.ag-header h1 {
+  margin: 0;
+  font-size: 42px;
+  line-height: 1.2;
+  font-weight: 700;
+  color: #1f4f39;
+
+  text-shadow: 0 2px 8px rgba(255, 255, 255, 0.35);
+}
+
+.ag-header p {
+  margin: 12px 0 0;
+  font-size: 18px;
+  color: #4e8f68;
+}
+
+
+/* =========================================================
+   KPI GRID
+   ========================================================= */
+
+.ag-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(170px, 1fr));
+  gap: 22px;
+  margin-bottom: 45px;
+}
+
+
+/* =========================================================
+   KPI CARD
+   ========================================================= */
+
+.kpi-card {
+  min-height: 210px;
+
+  background: rgba(252, 250, 245, 0.92);
+
+  border-radius: 22px;
+  padding: 28px 20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow:
+    0 10px 25px rgba(31, 79, 57, 0.12);
+
+  border-left: 1px solid rgba(217, 229, 217, 0.9);
+  border-right: 1px solid rgba(217, 229, 217, 0.9);
+
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.kpi-card:hover {
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 15px 32px rgba(31, 79, 57, 0.18);
+}
+
+.kpi-icon {
+  font-size: 42px;
+  line-height: 1;
+  margin-bottom: 18px;
+}
+
+.kpi-value {
+  color: #1f4f39;
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 14px;
+}
+
+.kpi-title {
+  color: #4e8f68;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+}
+
+
+/* =========================================================
+   SECTION
+   ========================================================= */
+
+.ag-section {
+  background: transparent;
+  margin-bottom: 45px;
+}
+
+.ag-section > h2 {
+  color: #1f4f39;
+  font-size: 25px;
+  margin: 0 0 22px;
+}
+
+
+/* =========================================================
+   YEAR CARDS
+   ========================================================= */
+
+.year-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.year-card {
+  background: rgba(252, 250, 245, 0.92);
+
+  border: 1px solid rgba(213, 226, 213, 0.9);
+  border-radius: 18px;
+  padding: 22px;
+  cursor: pointer;
+
+  text-align: center;
+
+  box-shadow:
+    0 7px 20px rgba(31, 79, 57, 0.10);
+
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  transition: all 0.25s ease;
+}
+
+.year-card:hover {
+  transform: translateY(-3px);
+  border-color: #4e8f68;
+
+  box-shadow:
+    0 10px 24px rgba(31, 79, 57, 0.15);
+}
+
+.year-card.active {
+  background: rgba(232, 241, 232, 0.94);
+  border: 2px solid #4e8f68;
+}
+
+.year-card div {
+  color: #4e8f68;
+  font-size: 14px;
+  margin-bottom: 7px;
+}
+
+.year-card strong {
+  color: #1f4f39;
+  font-size: 23px;
+}
+
+
+/* =========================================================
+   ANALYTICS HEADER
+   ========================================================= */
+
+.analytics-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 28px;
+}
+
+.analytics-header h2 {
+  margin: 0;
+  font-size: 28px;
+  color: #1f4f39;
+}
+
+.analytics-header p {
+  margin: 7px 0 0;
+  color: #4e8f68;
+  font-size: 15px;
+}
+
+.clear-button {
+  border: 1px solid #4e8f68;
+  background: rgba(252, 250, 245, 0.92);
+  color: #1f4f39;
+
+  padding: 10px 18px;
+  border-radius: 10px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.clear-button:hover {
+  background: #4e8f68;
+  color: white;
+}
+
+
+/* =========================================================
+   YEAR KPI
+   ========================================================= */
+
+.year-kpis {
+  margin-bottom: 35px;
+}
+
+
+/* =========================================================
+   CHART GRID
+   ========================================================= */
+
+.chart-grid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr);
+
+  gap: 28px;
+
+  margin-bottom: 28px;
+}
+
+
+/* =========================================================
+   CHART CARD
+   ========================================================= */
+
+.chart-card {
+  background: rgba(252, 250, 245, 0.92);
+
+  border: 1px solid rgba(213, 226, 213, 0.9);
+
+  border-radius: 20px;
+
+  padding: 22px 20px 18px;
+
+  min-width: 0;
+
+  box-shadow:
+    0 8px 24px rgba(31, 79, 57, 0.10);
+
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  overflow: hidden;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.chart-card:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 12px 28px rgba(31, 79, 57, 0.14);
+}
+
+.chart-card h2 {
+  margin: 0;
+
+  color: #1f4f39;
+
+  font-size: 23px;
+
+  font-weight: 700;
+
+  line-height: 1.25;
+}
+
+.chart-card > p {
+  margin: 8px 0 15px;
+
+  color: #4e8f68;
+
+  font-size: 15px;
+}
+
+.chart-container {
+  width: 100%;
+  min-width: 0;
+}
+
+
+/* =========================================================
+   RECHARTS
+   ========================================================= */
+
+.recharts-wrapper {
+  max-width: 100%;
+}
+
+.recharts-text {
+  fill: #456052;
+}
+
+.recharts-cartesian-axis-tick-value {
+  font-size: 12px;
+}
+
+.recharts-legend-item-text {
+  color: #356047 !important;
+}
+
+.recharts-tooltip-wrapper {
+  outline: none;
+}
+
+
+/* =========================================================
+   SUMMARY CARD
+   ========================================================= */
+
+.summary-box {
+  height: 390px;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 18px;
+
+  align-content: center;
+}
+
+.summary-item {
+  background: rgba(237, 244, 237, 0.92);
+
+  border: 1px solid #d6e5d7;
+
+  border-radius: 14px;
+
+  padding: 22px 18px;
+
+  text-align: center;
+}
+
+.summary-item span {
+  display: block;
+
+  color: #4e8f68;
+
+  font-size: 14px;
+
+  margin-bottom: 9px;
+}
+
+.summary-item strong {
+  display: block;
+
+  color: #1f4f39;
+
+  font-size: 24px;
+}
+
+
+/* =========================================================
+   TABLE
+   ========================================================= */
+
+.table-card {
+  background: rgba(252, 250, 245, 0.92);
+
+  border: 1px solid rgba(213, 226, 213, 0.9);
+
+  border-radius: 20px;
+
+  padding: 25px;
+
+  margin-top: 8px;
+
+  box-shadow:
+    0 8px 24px rgba(31, 79, 57, 0.10);
+
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.table-header {
+  margin-bottom: 20px;
+}
+
+.table-header h2 {
+  margin: 0;
+
+  font-size: 25px;
+
+  color: #1f4f39;
+}
+
+.table-header p {
+  margin: 7px 0 0;
+
+  color: #4e8f68;
+
+  font-size: 15px;
+}
+
+.table-wrapper {
+  width: 100%;
+
+  overflow-x: auto;
+
+  border-radius: 12px;
+}
+
+table {
+  width: 100%;
+
+  border-collapse: collapse;
+
+  min-width: 850px;
+}
+
+thead {
+  background: #1f4f39;
+}
+
+thead th {
+  color: white;
+
+  padding: 14px 13px;
+
+  text-align: left;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  white-space: nowrap;
+}
+
+tbody tr {
+  border-bottom: 1px solid #e0e8df;
+
+  transition: background 0.2s ease;
+}
+
+tbody tr:hover {
+  background: #f0f6ef;
+}
+
+tbody td {
+  padding: 13px;
+
+  color: #40594b;
+
+  font-size: 14px;
+}
+
+tbody td:first-child {
+  color: #6a8073;
+}
+
+.district-name {
+  color: #1f4f39 !important;
+
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   EXPLORE
+   ========================================================= */
+
+.explore-section {
+  margin-top: 50px;
+}
+
+.explore-section > h2 {
+  color: #1f4f39;
+
+  font-size: 26px;
+
+  margin-bottom: 22px;
+}
+
+.explore-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 22px;
+}
+
+.explore-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.explore-card {
+  background: rgba(252, 250, 245, 0.92);
+
+  border: 1px solid rgba(213, 226, 213, 0.9);
+
+  border-radius: 18px;
+
+  padding: 28px;
+
+  text-align: center;
+
+  min-height: 180px;
+
+  box-shadow:
+    0 8px 22px rgba(31, 79, 57, 0.10);
+
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  transition: all 0.25s ease;
+}
+
+.explore-card:hover {
+  transform: translateY(-4px);
+
+  border-color: #4e8f68;
+
+  box-shadow:
+    0 12px 28px rgba(31, 79, 57, 0.15);
+}
+
+.explore-icon {
+  font-size: 38px;
+
+  margin-bottom: 10px;
+}
+
+.explore-card h3 {
+  margin: 0 0 8px;
+
+  color: #1f4f39;
+
+  font-size: 19px;
+}
+
+.explore-card p {
+  margin: 0;
+
+  color: #5d7466;
+
+  font-size: 14px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   LOADING
+   ========================================================= */
+
+.ag-loading {
+  min-height: 100vh;
+
+  background: #f9f3e9;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  color: #1f4f39;
+
+  font-size: 22px;
+
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   ERROR
+   ========================================================= */
+
+.ag-error {
+  min-height: 100vh;
+
+  background: #f9f3e9;
+
+  padding: 40px;
+
+  color: #8b1e1e;
+
+  font-size: 20px;
+}
+
+
+/* =========================================================
+   CHART LOADING
+   ========================================================= */
+
+.chart-loading {
+  background: rgba(252, 250, 245, 0.92);
+
+  border: 1px solid #d5e2d5;
+
+  border-radius: 18px;
+
+  min-height: 180px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  color: #4e8f68;
+
+  font-size: 18px;
+
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.ag-footer {
+  margin-top: 45px;
+
+  text-align: center;
+
+  color: #6b8173;
+
+  font-size: 14px;
+
+  padding: 20px;
+}
+
+
+/* =========================================================
+   RESPONSIVE — LAPTOP
+   ========================================================= */
+
+@media (max-width: 1200px) {
+
+  .ag-dashboard {
+    padding: 25px 25px 60px;
+  }
+
+  .ag-kpi-grid {
+    grid-template-columns:
+      repeat(3, minmax(170px, 1fr));
+  }
+
+  .year-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .ag-dashboard {
+    padding: 22px 18px 50px;
+  }
+
+  .ag-header h1 {
+    font-size: 34px;
+  }
+
+  .ag-header p {
+    font-size: 16px;
+  }
+
+  .ag-kpi-grid {
+    grid-template-columns:
+      repeat(2, minmax(160px, 1fr));
+  }
+
+  .chart-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .explore-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .analytics-header {
+    align-items: flex-start;
+
+    gap: 15px;
+  }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .ag-dashboard {
+    padding: 18px 12px 40px;
+  }
+
+  .ag-header {
+    margin-bottom: 30px;
+  }
+
+  .ag-header h1 {
+    font-size: 28px;
+  }
+
+  .ag-header p {
+    font-size: 14px;
+  }
+
+  .ag-kpi-grid {
+    grid-template-columns: 1fr;
+
+    gap: 15px;
+  }
+
+  .kpi-card {
+    min-height: 165px;
+  }
+
+  .kpi-value {
+    font-size: 32px;
+  }
+
+  .year-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .analytics-header {
+    flex-direction: column;
+  }
+
+  .analytics-header h2 {
+    font-size: 23px;
+  }
+
+  .chart-grid {
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+  }
+
+  .chart-card {
+    padding: 18px 12px;
+  }
+
+  .chart-card h2 {
+    font-size: 20px;
+  }
+
+  .summary-box {
+    height: auto;
+
+    grid-template-columns: 1fr;
+  }
+
+  .table-card {
+    padding: 16px 10px;
+  }
+
+}
+
+
+/* ================================
+   CHART VISIBILITY FIX
+   ================================ */
+
+/* Give every chart a real height */
+
+.chart-container {
+  width: 100%;
+
+  height: 430px !important;
+
+  min-height: 430px !important;
+
+  position: relative;
+}
+
+
+/* Recharts ResponsiveContainer */
+
+.chart-container > .recharts-responsive-container {
+  width: 100% !important;
+
+  height: 100% !important;
+
+  min-height: 430px !important;
+}
+
+
+/* Make Recharts SVG use the available space */
+
+.chart-container .recharts-wrapper {
+  width: 100% !important;
+
+  height: 100% !important;
+}
+
+
+/* SVG itself */
+
+.chart-container svg {
+  width: 100% !important;
+
+  height: 100% !important;
+}
+
+
+/* ================================
+   CHART CARDS
+   ================================ */
+
+.chart-card {
+  min-height: 600px;
+
+  overflow: hidden;
+}
+
+.chart-card .chart-container {
+  height: 430px !important;
+
+  min-height: 430px !important;
+
+  margin-top: 15px;
+}
+
+
+/* Don't let legends consume the chart area */
+
+.chart-card .recharts-legend-wrapper {
+  position: relative !important;
+}
+
+
+/* ================================
+   GRID / AXES
+   ================================ */
+
+.recharts-cartesian-grid line {
+  stroke-opacity: 0.35;
+}
+
+.recharts-cartesian-axis-tick-value {
+  font-size: 13px;
+}
+
+.recharts-text {
+  font-size: 13px;
+}
+
+
+/* ================================
+   PIE / DONUT
+   ================================ */
+
+.chart-card .recharts-pie {
+  transform-origin: center;
+}
+
+
+/* ================================
+   TREEMAP
+   ================================ */
+
+.chart-card .recharts-treemap {
+  width: 100%;
+  height: 100%;
+}

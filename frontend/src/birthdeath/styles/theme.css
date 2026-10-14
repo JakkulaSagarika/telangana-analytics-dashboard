@@ -1,0 +1,26 @@
+:root{
+
+    /* Brand */
+    --primary:#6C4DFF;
+    --primary-hover:#8E72FF;
+
+    /* Backgrounds */
+    --background:#F8F9FD;
+    --surface:#FFFFFF;
+    --light-purple:#F4F0FF;
+    --lavender:#D9D0FF;
+
+    /* Text */
+    --text:#2D2D44;
+    --text-secondary:#7B7B90;
+
+    /* Borders */
+    --border:#E8E8F3;
+
+    /* Shadow */
+    --shadow:rgba(108,77,255,.12);
+
+    /* Radius */
+    --radius:18px;
+
+}

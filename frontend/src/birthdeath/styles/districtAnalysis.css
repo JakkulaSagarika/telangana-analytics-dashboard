@@ -1,0 +1,709 @@
+/* ================================
+   DISTRICT PAGE BACKGROUND
+================================ */
+
+.district-dashboard{
+
+    min-height:100vh;
+    position:relative;
+    overflow:hidden;
+    padding:30px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #EEF3FF,
+        #E8E0FF,
+        #D6CCFF
+    );
+
+}
+
+
+.district-background{
+
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+    z-index:0;
+
+}
+
+
+
+.blob{
+
+    position:absolute;
+    border-radius:50%;
+    filter:blur(70px);
+    opacity:.45;
+
+}
+
+
+.blob1{
+
+    width:350px;
+    height:350px;
+
+    background:#A8C7FF;
+
+    top:-100px;
+    left:-100px;
+
+}
+
+
+.blob2{
+
+    width:400px;
+    height:400px;
+
+    background:#6C4DFF;
+
+    right:-150px;
+    top:200px;
+
+}
+
+
+.blob3{
+
+    width:300px;
+    height:300px;
+
+    background:#E9C6FF;
+
+    bottom:-100px;
+    left:40%;
+
+}
+
+
+
+.district-content{
+
+    position:relative;
+    z-index:2;
+
+}
+
+
+
+/* ================================
+ HEADER
+================================ */
+
+
+.district-page-header{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:30px;
+
+}
+
+
+
+.page-title{
+
+    display:flex;
+    align-items:center;
+    gap:20px;
+
+}
+
+
+
+.page-icon{
+
+    width:65px;
+    height:65px;
+
+    border-radius:20px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:white;
+    font-size:28px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #7C5CFC,
+        #4F7CFF
+    );
+
+    box-shadow:
+    0 15px 30px rgba(108,77,255,.25);
+
+}
+
+
+
+.page-title h1{
+
+    margin:0;
+
+    color:#5B46D3;
+
+    font-size:42px;
+
+    font-weight:800;
+
+}
+
+
+
+.page-title p{
+
+    color:#756B98;
+
+    margin-top:5px;
+
+}
+
+
+
+
+.district-counter{
+
+    padding:20px 35px;
+
+    border-radius:22px;
+
+    background:
+    rgba(255,255,255,.55);
+
+    backdrop-filter:blur(15px);
+
+    text-align:center;
+
+}
+
+
+.district-counter h2{
+
+    margin:0;
+
+    color:#6C4DFF;
+
+    font-size:35px;
+
+}
+
+
+.district-counter span{
+
+    color:#777;
+
+}
+
+
+
+
+
+/* ================================
+ SEARCH
+================================ */
+
+
+.glass-search-card{
+
+    padding:25px;
+
+    border-radius:25px;
+
+    margin-bottom:30px;
+
+    background:
+    rgba(255,255,255,.55);
+
+    backdrop-filter:blur(18px);
+
+    box-shadow:
+    0 15px 35px rgba(108,77,255,.12);
+
+}
+
+
+
+.search-label{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin-bottom:12px;
+
+    color:#5B46D3;
+
+    font-size:18px;
+
+    font-weight:700;
+
+}
+
+
+
+.glass-select{
+
+    width:100%;
+
+    padding:15px;
+
+    border-radius:15px;
+
+    border:2px solid #D9CCFF;
+
+    background:white;
+
+    color:#4C3AA8;
+
+    font-size:16px;
+
+}
+
+
+
+
+
+
+/* ================================
+ EMPTY STATE
+================================ */
+
+
+.empty-state{
+
+    height:350px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    border-radius:30px;
+
+    background:
+    rgba(255,255,255,.55);
+
+    backdrop-filter:blur(15px);
+
+}
+
+
+
+.empty-icon{
+
+    font-size:60px;
+
+    color:#6C4DFF;
+
+}
+
+
+
+.empty-state h2{
+
+    color:#5B46D3;
+
+}
+
+
+.empty-state p{
+
+    color:#777;
+
+    max-width:500px;
+
+}
+/* ================================
+   DISTRICT SUMMARY GLASS CARD
+================================ */
+
+
+.glass-summary-card{
+
+    margin-top:40px;
+
+    padding:30px;
+
+    border-radius:28px;
+
+    background:
+    rgba(255,255,255,.55);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.6);
+
+    box-shadow:
+    0 15px 40px rgba(108,77,255,.15);
+
+}
+
+
+
+.glass-chart-header h3{
+
+    margin:0;
+
+    color:#5B46D3;
+
+    font-size:28px;
+
+    font-weight:800;
+
+}
+
+
+
+.glass-chart-header p{
+
+    color:#756B98;
+
+}
+
+
+
+
+
+
+/* ================================
+   IMAGE KPI CARDS
+================================ */
+
+
+.district-kpi-section{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:25px;
+
+    margin-top:30px;
+
+}
+
+
+
+.district-kpi-card{
+
+    height:240px;
+
+    border-radius:30px;
+
+    background-size:cover;
+
+    background-position:center;
+
+    position:relative;
+
+    overflow:hidden;
+
+    box-shadow:
+
+    0 15px 35px rgba(108,77,255,.18);
+
+}
+
+
+
+.kpi-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+    linear-gradient(
+
+        135deg,
+
+        rgba(60,40,120,.60),
+
+        rgba(108,77,255,.35)
+
+    );
+
+}
+
+
+
+.kpi-content{
+
+    position:relative;
+
+    z-index:2;
+
+    height:100%;
+
+    padding:30px;
+
+    color:white;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+}
+
+
+
+.kpi-content span{
+
+    font-size:18px;
+
+}
+
+
+
+.kpi-content h1{
+
+    margin:10px 0;
+
+    font-size:42px;
+
+    font-weight:800;
+
+}
+
+
+
+.kpi-content p{
+
+    font-size:15px;
+
+    margin:0;
+
+}
+
+
+
+
+
+/* ================================
+ LOCAL BODY CARD
+================================ */
+
+
+.local-body-values{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:15px;
+
+    width:100%;
+
+    margin-top:20px;
+
+}
+
+
+
+.local-body-values div{
+
+    flex:1;
+
+    text-align:center;
+
+}
+
+
+
+.local-body-values small{
+
+    display:block;
+
+    color:white;
+
+    font-size:12px;
+
+    white-space:nowrap;
+
+}
+
+
+
+.local-body-values h2{
+
+    margin-top:8px;
+
+    color:white;
+
+    font-size:26px;
+
+    font-weight:800;
+
+}
+
+
+
+
+
+
+/* ================================
+ COMMON GLASS CARD
+================================ */
+
+
+.glass-info-card{
+
+    padding:28px;
+
+    border-radius:28px;
+
+    background:
+
+    rgba(255,255,255,.55);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.6);
+
+    box-shadow:
+
+    0 15px 40px rgba(108,77,255,.15);
+
+    transition:.35s;
+
+}
+
+
+
+.glass-info-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+
+
+.mini-stats{
+
+    display:flex;
+
+    justify-content:space-between;
+
+}
+
+
+.mini-stats span{
+
+    color:#777;
+
+}
+
+
+.mini-stats strong{
+
+    color:#5B46D3;
+
+    font-size:18px;
+
+}
+
+
+
+
+
+/* ================================
+ RESPONSIVE
+================================ */
+
+
+@media(max-width:1200px){
+
+
+    .district-kpi-section{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+
+}
+
+
+
+
+@media(max-width:700px){
+
+
+    .district-dashboard{
+
+        padding:15px;
+
+    }
+
+
+    .district-page-header{
+
+        flex-direction:column;
+
+        gap:20px;
+
+    }
+
+
+
+    .page-title h1{
+
+        font-size:32px;
+
+    }
+
+
+
+    .district-kpi-section{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+
+    .local-body-values{
+
+        gap:8px;
+
+    }
+
+
+
+    .local-body-values small{
+
+        font-size:10px;
+
+    }
+
+
+
+    .local-body-values h2{
+
+        font-size:22px;
+
+    }
+
+
+}
