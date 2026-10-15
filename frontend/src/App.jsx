@@ -45,7 +45,31 @@ function RequireAuth({ status, onLoggedOut, children }) {
     return <Navigate to="/login" replace state={{ from: location }} />;
   }
 
-  return <><LogoutButton onLoggedOut={onLoggedOut} />{children}</>;
+  
+  
+
+  const hiddenLogoutRoutes = [
+    "/education",
+    "/ev",
+    "/agriculture",
+    "/literacy",
+    "/birth-death",
+  ];
+
+  const hideLogout = hiddenLogoutRoutes.some(
+    (path) =>
+      location.pathname === path ||
+      location.pathname.startsWith(`${path}/`)
+  );
+
+
+  return (
+    <>
+      {!hideLogout && <LogoutButton onLoggedOut={onLoggedOut} />}
+      {children}
+    </>
+  );
+
 }
 
 function App() {
